@@ -15,16 +15,22 @@ SHEET = GSPEAD_CLIENT.open("shahem_inventory")
 def get_input_sales():
     """
     Get sales figures input from the user.
-
+    Run a while loop to collect a valid string of data from the user
+    via the terminal, which must be a string of 6 numbers separated
+    by commas. The loop will repeatedly request data, until it is valid.
     """
-    print("Please inter sales data from the last market.")
-    print("Data should be six numbers, separated by commas.")
-    print("Example: 10,20,30,40,50,60\n")
+    while True:
+        print("Please inter sales data from the last market.")
+        print("Data should be six numbers, separated by commas.")
+        print("Example: 10,20,30,40,50,60\n")
 
-    data_str = input("Inter your data here: ")
-    new_data = data_str.split(",")
-    validate_data(new_data)
+        data_str = input("Inter your data here: ")
+        new_data = data_str.split(",")
 
+        if validate_data(new_data):
+            print("data is valid")
+            break
+    return new_data       
 
 def validate_data(values):
     """
@@ -40,5 +46,10 @@ def validate_data(values):
             )
     except ValueError as e:
         print(f"Invalid data: {e}, please try again.\n")
-        
-get_input_sales():
+        return False
+
+    return True
+
+
+sales_data = get_input_sales()
+
