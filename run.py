@@ -1,3 +1,8 @@
+"""
+Import Libraries:
+gspread to deal with google sheet api
+google.oauth2 for Credentials
+"""
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -96,10 +101,13 @@ def update_stock_worksheet_deduct(data):
 
 
 def main_sales():
+    """
+    central method for sales
+    """
     sales_data = get_input_sales()
     sales = [int(num) for num in sales_data]
     update_sales_worksheet(sales)
-    new_stock_data = update_stock_worksheet_deduct(sales)
+    update_stock_worksheet_deduct(sales)
 
 
 def get_input_buy():
@@ -153,6 +161,9 @@ def update_stock_worksheet_add(data):
 
 
 def main_buy():
+    '''
+     central method for buy
+    '''
     bay_data = get_input_buy()
     buy = [int(num) for num in bay_data]
     update_buy_worksheet(buy)
@@ -196,6 +207,7 @@ def update_damage_worksheet(data):
 
 def main_damage():
     """
+    central method for damage
     """
     damage_data = get_input_damage()
     damage = [int(num) for num in damage_data]
@@ -205,6 +217,9 @@ def main_damage():
 
 
 def main():
+    """
+    Run all main functions
+    """
     main_sales()
     main_buy()
     main_damage()
