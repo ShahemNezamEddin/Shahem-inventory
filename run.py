@@ -207,6 +207,7 @@ def main_damage():
     damage_data = get_input_damage()
     damage = [int(num) for num in damage_data]
     update_damage_worksheet(damage)
+    update_stock_worksheet_deduct(damage)
 
 
 
@@ -214,6 +215,7 @@ def main():
     main_sales()
     main_buy()
     main_damage()
+    
 
 print("Welcome to Shahem inventory Data Automation")
 
