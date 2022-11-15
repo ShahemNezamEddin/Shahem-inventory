@@ -26,11 +26,11 @@ def get_input_sales():
     by commas. The loop will repeatedly request data, until it is valid.
     """
     while True:
-        print("Please inter sales data from the last market.")
+        print("Please enter sales data from the last market.")
         print("Data should be six numbers, separated by commas.")
         print("Example: 10,20,30,40,50,60\n")
 
-        data_str = input("Inter your data here: ")
+        data_str = input("Enter your data here: ")
         new_data = data_str.split(",")
 
         if validate_data(new_data):
@@ -70,17 +70,16 @@ def calculate_total(data):
         total.append(total_sum)
     print(f"Total {data}: {total} .\n")
 
-
-def update_sales_worksheet(data):
+def update_worksheet(data, sheet_type):
     """
-    Update sales worksheet, add new row with the list data provided
-    and print total sales
+    Update worksheet, add new row with the list data provided
+    and print total in worksheet
     """
-    print("Updating sales worksheet...\n")
-    sales_worksheet = SHEET.worksheet("sales")
-    sales_worksheet.append_row(data)
-    print("Sales worksheet updated successfully.\n")
-    calculate_total('sales')
+    print(f"Updating {sheet_type} worksheet...\n")
+    worksheet = SHEET.worksheet(sheet_type)
+    worksheet.append_row(data)
+    print(f"{sheet_type} worksheet updated successfully.\n")
+    calculate_total(sheet_type)
 
 
 def update_stock_worksheet_deduct(data):
@@ -106,7 +105,7 @@ def main_sales():
     """
     sales_data = get_input_sales()
     sales = [int(num) for num in sales_data]
-    update_sales_worksheet(sales)
+    update_worksheet(sales, 'sales')
     update_stock_worksheet_deduct(sales)
 
 
@@ -118,28 +117,17 @@ def get_input_buy():
     by commas. The loop will repeatedly request data, until it is valid.
     """
     while True:
-        print("Please inter buy data from the last market.")
+        print("Please enter buy data from the last market.")
         print("Data should be six numbers, separated by commas.")
         print("Example: 10,20,30,40,50,60\n")
 
-        data_str = input("Inter your data here: ")
+        data_str = input("Enter your data here: ")
         new_data = data_str.split(",")
 
         if validate_data(new_data):
             print("data is valid")
             break
     return new_data
-
-def update_buy_worksheet(data):
-    """
-    Update buy worksheet, add new row with the list data provided
-    and print total buy
-    """
-    print("Updating buy worksheet...\n")
-    buy_worksheet = SHEET.worksheet("buy")
-    buy_worksheet.append_row(data)
-    print("buy worksheet updated successfully.\n")
-    calculate_total('buy')
 
 
 
@@ -166,7 +154,7 @@ def main_buy():
     '''
     bay_data = get_input_buy()
     buy = [int(num) for num in bay_data]
-    update_buy_worksheet(buy)
+    update_worksheet(buy, 'buy')
     update_stock_worksheet_add(buy)
 
 
@@ -178,11 +166,11 @@ def get_input_damage():
     by commas. The loop will repeatedly request data, until it is valid.
     """
     while True:
-        print("Please inter damage data from the last market.")
+        print("Please enter damage data from the last market.")
         print("Data should be six numbers, separated by commas.")
         print("Example: 10,20,30,40,50,60\n")
 
-        data_str = input("Inter your data here: ")
+        data_str = input("Enter your data here: ")
         new_data = data_str.split(",")
 
         if validate_data(new_data):
@@ -192,26 +180,13 @@ def get_input_damage():
 
 
 
-
-def update_damage_worksheet(data):
-    """
-    Update damage worksheet, add new row with the list data provided
-    and print total damage
-    """
-    print("Updating damage worksheet...\n")
-    damage_worksheet = SHEET.worksheet("damage")
-    damage_worksheet.append_row(data)
-    print("damage worksheet updated successfully.\n")
-    calculate_total('damage')
-
-
 def main_damage():
     """
     central method for damage
     """
     damage_data = get_input_damage()
     damage = [int(num) for num in damage_data]
-    update_damage_worksheet(damage)
+    update_worksheet(damage, 'damage')
     update_stock_worksheet_deduct(damage)
 
 
