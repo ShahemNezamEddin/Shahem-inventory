@@ -12,8 +12,33 @@ SCOPE_CREDS = CREDS.with_scopes(SCOPE)
 GSPEAD_CLIENT = gspread.authorize(SCOPE_CREDS)
 SHEET = GSPEAD_CLIENT.open("shahem_inventory")
 
-sales = SHEET.worksheet("sales")
+def get_input_sales():
+    """
+    Get sales figures input from the user.
 
-sales_sheet = sales.get_all_values()
-print(sales_sheet)
+    """
+    print("Please inter sales data from the last market.")
+    print("Data should be six numbers, separated by commas.")
+    print("Example: 10,20,30,40,50,60\n")
 
+    data_str = input("Inter your data here: ")
+    new_data = data_str.split(",")
+    validate_data(new_data)
+
+
+def validate_data(values):
+    """
+    Inside the try, converts all string values into integers.
+    Raises ValueError if strings cannot be converted into int,
+    or if there aren't exactly 6 values.
+    """
+    try:
+        values = [int(value) for value in values]
+        if len(values) != 6:
+            raise ValueError(
+                f"Exactly 6 values required, you provided {len(values)}"
+            )
+    except ValueError as e:
+        print(f"Invalid data: {e}, please try again.\n")
+        
+get_input_sales():
