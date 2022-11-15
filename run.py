@@ -12,6 +12,7 @@ SCOPE_CREDS = CREDS.with_scopes(SCOPE)
 GSPEAD_CLIENT = gspread.authorize(SCOPE_CREDS)
 SHEET = GSPEAD_CLIENT.open("shahem_inventory")
 
+
 def get_input_sales():
     """
     Get sales figures input from the user.
@@ -32,6 +33,7 @@ def get_input_sales():
             break
     return new_data       
 
+
 def validate_data(values):
     """
     Inside the try, converts all string values into integers.
@@ -50,6 +52,7 @@ def validate_data(values):
 
     return True
 
+
 def update_sales_worksheet(data):
     """
     Update sales worksheet, add new row with the list data provided
@@ -60,6 +63,30 @@ def update_sales_worksheet(data):
     print("Sales worksheet updated successfully.\n")
 
 
-sales_data = get_input_sales()
-sales = [int(num) for num in sales_data]
-update_sales_worksheet(sales)
+def update_stock_worksheet_add(data):
+    """
+    Update stock worksheet, add new row with
+    the list data provided + the old stock
+    """
+    print("Updating stock worksheet...\n")
+    stock = SHEET.worksheet("stock").get_all_values()
+    stock_row = stock[-1]
+    now_stock = []
+    for stock, num in zip(stock_row, data):
+        stock_data = int(stock) - num
+        now_stock.append(stock_data)
+    SHEET.worksheet("stock").append_row(now_stock)
+
+    print("stock worksheet updated successfully.\n")
+
+
+def main_sales():
+    sales_data = get_input_sales()
+    sales = [int(num) for num in sales_data]
+    update_sales_worksheet(sales)
+    update_stock_worksheet_add(sales)
+
+print("Welcome to Shahem inventory Data Automation")
+
+
+main_sales()
