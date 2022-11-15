@@ -56,37 +56,48 @@ def validate_data(values):
 def update_sales_worksheet(data):
     """
     Update sales worksheet, add new row with the list data provided
+    and print total sales
     """
     print("Updating sales worksheet...\n")
     sales_worksheet = SHEET.worksheet("sales")
     sales_worksheet.append_row(data)
     print("Sales worksheet updated successfully.\n")
+    total_sales = []
+    for i in range(1,7):
+        col = SHEET.worksheet("sales").col_values(i)
+        col.pop(0)
+        new_col = [int(num) for num in col]
+        total = sum(new_col)
+        total_sales.append(total)
+        
+    print(f"Total sales: {total_sales} .\n")
+
 
 
 def update_stock_worksheet_add(data):
     """
     Update stock worksheet, add new row with
-    the list data provided + the old stock
+    the list data provided - the old stock
     """
     print("Updating stock worksheet...\n")
     stock = SHEET.worksheet("stock").get_all_values()
     stock_row = stock[-1]
-    now_stock = []
+    new_stock = []
     for stock, num in zip(stock_row, data):
         stock_data = int(stock) - num
-        now_stock.append(stock_data)
-    SHEET.worksheet("stock").append_row(now_stock)
-
+        new_stock.append(stock_data)
+    SHEET.worksheet("stock").append_row(new_stock)
     print("stock worksheet updated successfully.\n")
+    return new_stock
 
 
 def main_sales():
     sales_data = get_input_sales()
     sales = [int(num) for num in sales_data]
     update_sales_worksheet(sales)
-    update_stock_worksheet_add(sales)
+    new_stock_data = update_stock_worksheet_add(sales)
+
 
 print("Welcome to Shahem inventory Data Automation")
-
 
 main_sales()
