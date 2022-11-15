@@ -18,15 +18,54 @@ GSPEAD_CLIENT = gspread.authorize(SCOPE_CREDS)
 SHEET = GSPEAD_CLIENT.open("shahem_inventory")
 
 
-def get_input_sales():
+def main():
     """
-    Get sales figures input from the user.
+    Run all main functions
+    """
+    main_sales()
+    main_buy()
+    main_damage()
+
+
+def main_sales():
+    """
+    central method for sales
+    """
+    sales_data = get_input('sales')
+    sales = [int(num) for num in sales_data]
+    update_worksheet(sales, 'sales')
+    update_stock_worksheet_deduct(sales)
+
+
+def main_buy():
+    '''
+     central method for buy
+    '''
+    bay_data = get_input('buy')
+    buy = [int(num) for num in bay_data]
+    update_worksheet(buy, 'buy')
+    update_stock_worksheet_add(buy)
+
+
+def main_damage():
+    """
+    central method for damage
+    """
+    damage_data = get_input('damage')
+    damage = [int(num) for num in damage_data]
+    update_worksheet(damage, 'damage')
+    update_stock_worksheet_deduct(damage)
+
+
+def get_input(sheet_type):
+    """
+    Get sheet figures input from the user.
     Run a while loop to collect a valid string of data from the user
     via the terminal, which must be a string of 6 numbers separated
     by commas. The loop will repeatedly request data, until it is valid.
     """
     while True:
-        print("Please enter sales data from the last market.")
+        print(f"Please enter {sheet_type} data from the last market.")
         print("Data should be six numbers, separated by commas.")
         print("Example: 10,20,30,40,50,60\n")
 
@@ -36,7 +75,7 @@ def get_input_sales():
         if validate_data(new_data):
             print("data is valid")
             break
-    return new_data       
+    return new_data
 
 
 def validate_data(values):
@@ -57,6 +96,19 @@ def validate_data(values):
 
     return True
 
+
+def update_worksheet(data, sheet_type):
+    """
+    Update worksheet, add new row with the list data provided
+    and print total in worksheet
+    """
+    print(f"Updating {sheet_type} worksheet...\n")
+    worksheet = SHEET.worksheet(sheet_type)
+    worksheet.append_row(data)
+    print(f"{sheet_type} worksheet updated successfully.\n")
+    calculate_total(sheet_type)
+
+
 def calculate_total(data):
     """
     Calculate total for each sheet
@@ -69,17 +121,6 @@ def calculate_total(data):
         total_sum = sum(new_col)
         total.append(total_sum)
     print(f"Total {data}: {total} .\n")
-
-def update_worksheet(data, sheet_type):
-    """
-    Update worksheet, add new row with the list data provided
-    and print total in worksheet
-    """
-    print(f"Updating {sheet_type} worksheet...\n")
-    worksheet = SHEET.worksheet(sheet_type)
-    worksheet.append_row(data)
-    print(f"{sheet_type} worksheet updated successfully.\n")
-    calculate_total(sheet_type)
 
 
 def update_stock_worksheet_deduct(data):
@@ -96,39 +137,7 @@ def update_stock_worksheet_deduct(data):
         new_stock.append(stock_data)
     SHEET.worksheet("stock").append_row(new_stock)
     print("stock worksheet updated successfully.\n")
-    print(f"The new stock: {new_stock} .\n") 
-
-
-def main_sales():
-    """
-    central method for sales
-    """
-    sales_data = get_input_sales()
-    sales = [int(num) for num in sales_data]
-    update_worksheet(sales, 'sales')
-    update_stock_worksheet_deduct(sales)
-
-
-def get_input_buy():
-    """
-    Get buy figures input from the user.
-    Run a while loop to collect a valid string of data from the user
-    via the terminal, which must be a string of 6 numbers separated
-    by commas. The loop will repeatedly request data, until it is valid.
-    """
-    while True:
-        print("Please enter buy data from the last market.")
-        print("Data should be six numbers, separated by commas.")
-        print("Example: 10,20,30,40,50,60\n")
-
-        data_str = input("Enter your data here: ")
-        new_data = data_str.split(",")
-
-        if validate_data(new_data):
-            print("data is valid")
-            break
-    return new_data
-
+    print(f"The new stock: {new_stock} .\n")
 
 
 def update_stock_worksheet_add(data):
@@ -148,59 +157,6 @@ def update_stock_worksheet_add(data):
     print(f"The new stock: {new_stock} .\n")
 
 
-def main_buy():
-    '''
-     central method for buy
-    '''
-    bay_data = get_input_buy()
-    buy = [int(num) for num in bay_data]
-    update_worksheet(buy, 'buy')
-    update_stock_worksheet_add(buy)
-
-
-def get_input_damage():
-    """
-    Get damage figures input from the user.
-    Run a while loop to collect a valid string of data from the user
-    via the terminal, which must be a string of 6 numbers separated
-    by commas. The loop will repeatedly request data, until it is valid.
-    """
-    while True:
-        print("Please enter damage data from the last market.")
-        print("Data should be six numbers, separated by commas.")
-        print("Example: 10,20,30,40,50,60\n")
-
-        data_str = input("Enter your data here: ")
-        new_data = data_str.split(",")
-
-        if validate_data(new_data):
-            print("data is valid")
-            break
-    return new_data
-
-
-
-def main_damage():
-    """
-    central method for damage
-    """
-    damage_data = get_input_damage()
-    damage = [int(num) for num in damage_data]
-    update_worksheet(damage, 'damage')
-    update_stock_worksheet_deduct(damage)
-
-
-
-def main():
-    """
-    Run all main functions
-    """
-    main_sales()
-    main_buy()
-    main_damage()
-    
-
 print("Welcome to Shahem inventory Data Automation")
 
 main()
-
