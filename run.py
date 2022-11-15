@@ -163,9 +163,35 @@ def main_buy():
 
 
 
+def get_input_damage():
+    """
+    Get damage figures input from the user.
+    Run a while loop to collect a valid string of data from the user
+    via the terminal, which must be a string of 6 numbers separated
+    by commas. The loop will repeatedly request data, until it is valid.
+    """
+    while True:
+        print("Please inter buy data from the last market.")
+        print("Data should be six numbers, separated by commas.")
+        print("Example: 10,20,30,40,50,60\n")
+
+        data_str = input("Inter your data here: ")
+        new_data = data_str.split(",")
+
+        if validate_data(new_data):
+            print("data is valid")
+            break
+    return new_data
+
+def main_damage():
+    damage_data = get_input_damage()
+
+
+
 def main():
     main_sales()
     main_buy()
+    main_damage()
 
 print("Welcome to Shahem inventory Data Automation")
 
