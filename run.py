@@ -52,6 +52,19 @@ def validate_data(values):
 
     return True
 
+def calculate_total(data):
+    """
+    Calculate total for each sheet
+    """
+    total = []
+    for i in range(1, 7):
+        col = SHEET.worksheet(data).col_values(i)
+        col.pop(0)
+        new_col = [int(num) for num in col]
+        total_sum = sum(new_col)
+        total.append(total_sum)
+    print(f"Total {data}: {total} .\n")
+
 
 def update_sales_worksheet(data):
     """
@@ -62,15 +75,7 @@ def update_sales_worksheet(data):
     sales_worksheet = SHEET.worksheet("sales")
     sales_worksheet.append_row(data)
     print("Sales worksheet updated successfully.\n")
-    total_sales = []
-    for i in range(1,7):
-        col = SHEET.worksheet("sales").col_values(i)
-        col.pop(0)
-        new_col = [int(num) for num in col]
-        total = sum(new_col)
-        total_sales.append(total)
-        
-    print(f"Total sales: {total_sales} .\n")
+    calculate_total('sales')
 
 
 def update_stock_worksheet_deduct(data):
@@ -87,7 +92,7 @@ def update_stock_worksheet_deduct(data):
         new_stock.append(stock_data)
     SHEET.worksheet("stock").append_row(new_stock)
     print("stock worksheet updated successfully.\n")
-    return new_stock
+    print(f"The new stock: {new_stock} .\n") 
 
 
 def main_sales():
@@ -126,17 +131,10 @@ def update_buy_worksheet(data):
     buy_worksheet = SHEET.worksheet("buy")
     buy_worksheet.append_row(data)
     print("buy worksheet updated successfully.\n")
-    total_buy = []
-    for i in range(1,7):
-        col = SHEET.worksheet("buy").col_values(i)
-        col.pop(0)
-        new_col = [int(num) for num in col]
-        total = sum(new_col)
-        total_buy.append(total)
-        
-    print(f"Total buy: {total_buy} .\n")
-    
-    
+    calculate_total('buy')
+
+
+
 def update_stock_worksheet_add(data):
     """
     Update stock worksheet, add new row with
@@ -151,16 +149,14 @@ def update_stock_worksheet_add(data):
         new_stock.append(stock_data)
     SHEET.worksheet("stock").append_row(new_stock)
     print("stock worksheet updated successfully.\n")
-    return new_stock
-       
+    print(f"The new stock: {new_stock} .\n")
 
 
 def main_buy():
     bay_data = get_input_buy()
     buy = [int(num) for num in bay_data]
     update_buy_worksheet(buy)
-    new_stock_data = update_stock_worksheet_add(buy)
-
+    update_stock_worksheet_add(buy)
 
 
 def get_input_damage():
@@ -171,7 +167,7 @@ def get_input_damage():
     by commas. The loop will repeatedly request data, until it is valid.
     """
     while True:
-        print("Please inter buy data from the last market.")
+        print("Please inter damage data from the last market.")
         print("Data should be six numbers, separated by commas.")
         print("Example: 10,20,30,40,50,60\n")
 
@@ -184,6 +180,8 @@ def get_input_damage():
     return new_data
 
 
+
+
 def update_damage_worksheet(data):
     """
     Update damage worksheet, add new row with the list data provided
@@ -193,17 +191,12 @@ def update_damage_worksheet(data):
     damage_worksheet = SHEET.worksheet("damage")
     damage_worksheet.append_row(data)
     print("damage worksheet updated successfully.\n")
-    total_damage = []
-    for i in range(1,7):
-        col = SHEET.worksheet("damage").col_values(i)
-        col.pop(0)
-        new_col = [int(num) for num in col]
-        total = sum(new_col)
-        total_damage.append(total)
-        
-    print(f"Total damage: {total_damage} .\n")
+    calculate_total('damage')
+
 
 def main_damage():
+    """
+    """
     damage_data = get_input_damage()
     damage = [int(num) for num in damage_data]
     update_damage_worksheet(damage)
