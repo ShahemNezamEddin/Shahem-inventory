@@ -123,8 +123,8 @@ def update_buy_worksheet(data):
     and print total buy
     """
     print("Updating buy worksheet...\n")
-    sales_worksheet = SHEET.worksheet("buy")
-    sales_worksheet.append_row(data)
+    buy_worksheet = SHEET.worksheet("buy")
+    buy_worksheet.append_row(data)
     print("buy worksheet updated successfully.\n")
     total_buy = []
     for i in range(1,7):
@@ -183,8 +183,30 @@ def get_input_damage():
             break
     return new_data
 
+
+def update_damage_worksheet(data):
+    """
+    Update damage worksheet, add new row with the list data provided
+    and print total damage
+    """
+    print("Updating damage worksheet...\n")
+    damage_worksheet = SHEET.worksheet("damage")
+    damage_worksheet.append_row(data)
+    print("damage worksheet updated successfully.\n")
+    total_damage = []
+    for i in range(1,7):
+        col = SHEET.worksheet("damage").col_values(i)
+        col.pop(0)
+        new_col = [int(num) for num in col]
+        total = sum(new_col)
+        total_damage.append(total)
+        
+    print(f"Total damage: {total_damage} .\n")
+
 def main_damage():
     damage_data = get_input_damage()
+    damage = [int(num) for num in damage_data]
+    update_damage_worksheet(damage)
 
 
 
