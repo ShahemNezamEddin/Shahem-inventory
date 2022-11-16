@@ -25,6 +25,8 @@ def main():
     main_sales()
     main_buy()
     main_damage()
+    main_return_stock()
+    main_return_damage()
 
 
 def main_sales():
@@ -53,8 +55,26 @@ def main_damage():
     """
     damage_data = get_input('damage')
     damage = [int(num) for num in damage_data]
-    update_worksheet(damage, 'damage')
+    update_damage_worksheet_add(damage)
     update_stock_worksheet_deduct(damage)
+
+
+def main_return_stock():
+    """
+    central method for return to stock
+    """
+    return_stock_data = get_input('return to stock')
+    return_stock = [int(num) for num in return_stock_data]
+    update_stock_worksheet_add(return_stock)
+
+
+def main_return_damage():
+    """
+    central method for return to damage
+    """
+    return_damage_data = get_input('return to damage')
+    return_damage = [int(num) for num in return_damage_data]
+    update_damage_worksheet_add(return_damage)
 
 
 def get_input(sheet_type):
@@ -155,6 +175,23 @@ def update_stock_worksheet_add(data):
     SHEET.worksheet("stock").append_row(new_stock)
     print("stock worksheet updated successfully.\n")
     print(f"The new stock: {new_stock} .\n")
+
+
+def update_damage_worksheet_add(data):
+    """
+    Update damage worksheet, add new row with
+    the list data provided + the old damage
+    """
+    print("Updating damage worksheet...\n")
+    damage = SHEET.worksheet("damage").get_all_values()
+    damage_row = damage[-1]
+    new_damage = []
+    for damage, num in zip(damage_row, data):
+        damage_data = int(damage) + num
+        new_damage.append(damage_data)
+    SHEET.worksheet("damage").append_row(new_damage)
+    print("damage worksheet updated successfully.\n")
+    print(f"The new total damage: {new_damage} .\n")
 
 
 print("Welcome to Shahem inventory Data Automation")
