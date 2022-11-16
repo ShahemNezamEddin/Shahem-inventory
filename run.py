@@ -25,8 +25,8 @@ def main():
     main_sales()
     main_buy()
     main_damage()
-    main_return_stock()
     main_return_damage()
+    main_return_stock()
 
 
 def main_sales():
@@ -89,7 +89,7 @@ def get_input(sheet_type):
         print("Data should be six numbers, separated by commas.")
         print("Example: 10,20,30,40,50,60\n")
 
-        data_str = input("Enter your data here: ")
+        data_str = input("Enter your data here:\n")
         new_data = data_str.split(",")
 
         if validate_data(new_data):
