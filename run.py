@@ -24,6 +24,7 @@ SHEET = GSPEAD_CLIENT.open("shahem_inventory")
 def show_list():
     """
     """
+    print("Welcome to Shahem inventory Data Automation \n")
     questions = [
         inquirer.List("choice",
         message="What would like to do?",
@@ -49,12 +50,12 @@ def show_list():
     main() 
 
 
-
 def main():
     """
     """
     os.system("clear")
     show_list()
+    
 
 
 def main_sales():
@@ -114,6 +115,7 @@ def get_input(sheet_type):
     """
     while True:
         print(f"Please enter {sheet_type} data from the last market.")
+        print("T-shirt XS,T-shirt S,T-shirt M,T-shirt L,T-shirt XL,T-shirt XXL")
         print("Data should be six numbers, separated by commas.")
         print("Example: 10,20,30,40,50,60\n")
 
@@ -220,8 +222,5 @@ def update_damage_worksheet_add(data):
     SHEET.worksheet("damage").append_row(new_damage)
     print("damage worksheet updated successfully.\n")
     print(f"The new total damage: {new_damage} .\n")
-
-
-print("Welcome to Shahem inventory Data Automation")
 
 main()
