@@ -21,18 +21,24 @@ SCOPE_CREDS = CREDS.with_scopes(SCOPE)
 GSPEAD_CLIENT = gspread.authorize(SCOPE_CREDS)
 SHEET = GSPEAD_CLIENT.open("shahem_inventory")
 
+
 def show_list():
     """
-
-
+    a
+    a
     """
     print("Welcome to Shahem inventory Data Automation \n")
     questions = [
         inquirer.List("choice",
-        message="What would like to do?",
-        choices=["Add sales", "Add buy", "Add damage", "Return to stock",
-        "Return to damage", "Empty space for storage", "Exit"],
-        ),
+                      message="What would like to do?",
+                      choices=["Add sales",
+                               "Add buy",
+                               "Add damage",
+                               "Return to stock",
+                               "Return to damage",
+                               "Empty space for storage",
+                               "Exit"],
+                      ),
     ]
     answers = inquirer.prompt(questions)
     if answers == {'choice': 'Add sales'}:
@@ -62,13 +68,14 @@ def main():
 
 def go_back():
     """
-    
+    a
+    a
     """
     questions = [
         inquirer.List("choice",
-        message="What would like to do?",
-        choices=["Go back", "Exit"],
-        ),
+                      message="What would like to do?",
+                      choices=["Go back", "Exit"],
+                      ),
     ]
     answers = inquirer.prompt(questions)
     if answers == {'choice': 'Go back'}:
@@ -160,7 +167,6 @@ def empty_space_for_storage():
     go_back()
 
 
-
 def get_input(sheet_type):
     """
     Get sheet figures input from the user.
@@ -170,7 +176,8 @@ def get_input(sheet_type):
     """
     while True:
         print(f"Please enter {sheet_type} data from the last market.")
-        print("T-shirt XS,T-shirt S,T-shirt M,T-shirt L,T-shirt XL,T-shirt XXL")
+        print("T-shirt XS,T-shirt S,T-shirt M,T-shirt L,'\
+              T-shirt XL,T-shirt XXL")
         print("Data should be six numbers, separated by commas.")
         print("Example: 10,20,30,40,50,60\n")
 
@@ -225,7 +232,8 @@ def calculate_total(data):
         new_col = [int(num.replace(',', '')) for num in col]
         total_sum = sum(new_col)
         total.append(total_sum)
-    print("Products: T-shirt XS,T-shirt S,T-shirt M,T-shirt L,T-shirt XL,T-shirt XXL")
+    print("Products: T-shirt XS,T-shirt S,T-shirt M,T-shirt L,'\
+          T-shirt XL,T-shirt XXL")
     print(f"Total {data}: {total} .\n")
 
 
@@ -243,7 +251,8 @@ def update_stock_worksheet_deduct(data):
         new_stock.append(stock_data)
     SHEET.worksheet("stock").append_row(new_stock)
     print("stock worksheet updated successfully.\n")
-    print("Products: T-shirt XS,T-shirt S,T-shirt M,T-shirt L,T-shirt XL,T-shirt XXL")
+    print("Products: T-shirt XS,T-shirt S,T-shirt M,T-shirt L,'\
+          T-shirt XL,T-shirt XXL")
     print(f"The new stock: {new_stock} .\n")
 
 
@@ -261,7 +270,8 @@ def update_stock_worksheet_add(data):
         new_stock.append(stock_data)
     SHEET.worksheet("stock").append_row(new_stock)
     print("stock worksheet updated successfully.\n")
-    print("Products: T-shirt XS,T-shirt S,T-shirt M,T-shirt L,T-shirt XL,T-shirt XXL")
+    print("Products: T-shirt XS,T-shirt S,T-shirt M,T-shirt L,'\
+          T-shirt XL,T-shirt XXL")
     print(f"The new stock: {new_stock} .\n")
 
 
@@ -279,7 +289,8 @@ def update_damage_worksheet_add(data):
         new_damage.append(damage_data)
     SHEET.worksheet("damage").append_row(new_damage)
     print("damage worksheet updated successfully.\n")
-    print("Products: T-shirt XS,T-shirt S,T-shirt M,T-shirt L,T-shirt XL,T-shirt XXL")
+    print("Products: T-shirt XS,T-shirt S,T-shirt M,T-shirt L,'\
+          T-shirt XL,T-shirt XXL")
     print(f"The new total damage: {new_damage} .\n")
 
 
