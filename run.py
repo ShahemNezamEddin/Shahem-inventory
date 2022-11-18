@@ -23,6 +23,8 @@ SHEET = GSPEAD_CLIENT.open("shahem_inventory")
 
 def show_list():
     """
+
+
     """
     print("Welcome to Shahem inventory Data Automation \n")
     questions = [
@@ -46,16 +48,31 @@ def show_list():
         print("thank you")
         sys.exit()
 
-    sleep(5)    
-    main() 
-
 
 def main():
     """
+
     """
     os.system("clear")
     show_list()
-    
+
+
+def go_back():
+    """
+
+    """
+    questions = [
+        inquirer.List("choice",
+        message="What would like to do?",
+        choices=["Go back", "Exit"],
+        ),
+    ]
+    answers = inquirer.prompt(questions)
+    if answers == {'choice': 'Go back'}:
+        main()
+    else:
+        print("thank you")
+        sys.exit()
 
 
 def main_sales():
@@ -66,6 +83,9 @@ def main_sales():
     sales = [int(num) for num in sales_data]
     update_worksheet(sales, 'sales')
     update_stock_worksheet_deduct(sales)
+    sleep(2)
+    go_back()
+    
 
 
 def main_buy():
@@ -76,6 +96,8 @@ def main_buy():
     buy = [int(num) for num in bay_data]
     update_worksheet(buy, 'buy')
     update_stock_worksheet_add(buy)
+    sleep(2)
+    go_back()
 
 
 def main_damage():
@@ -86,6 +108,8 @@ def main_damage():
     damage = [int(num) for num in damage_data]
     update_damage_worksheet_add(damage)
     update_stock_worksheet_deduct(damage)
+    sleep(2)
+    go_back()
 
 
 def main_return_stock():
@@ -95,6 +119,8 @@ def main_return_stock():
     return_stock_data = get_input('return to stock')
     return_stock = [int(num) for num in return_stock_data]
     update_stock_worksheet_add(return_stock)
+    sleep(2)
+    go_back()
 
 
 def main_return_damage():
@@ -104,6 +130,8 @@ def main_return_damage():
     return_damage_data = get_input('return to damage')
     return_damage = [int(num) for num in return_damage_data]
     update_damage_worksheet_add(return_damage)
+    sleep(2)
+    go_back()
 
 
 def get_input(sheet_type):
@@ -170,6 +198,7 @@ def calculate_total(data):
         new_col = [int(num) for num in col]
         total_sum = sum(new_col)
         total.append(total_sum)
+    print("Products: T-shirt XS,T-shirt S,T-shirt M,T-shirt L,T-shirt XL,T-shirt XXL")
     print(f"Total {data}: {total} .\n")
 
 
@@ -187,6 +216,7 @@ def update_stock_worksheet_deduct(data):
         new_stock.append(stock_data)
     SHEET.worksheet("stock").append_row(new_stock)
     print("stock worksheet updated successfully.\n")
+    print("Products: T-shirt XS,T-shirt S,T-shirt M,T-shirt L,T-shirt XL,T-shirt XXL")
     print(f"The new stock: {new_stock} .\n")
 
 
@@ -204,6 +234,7 @@ def update_stock_worksheet_add(data):
         new_stock.append(stock_data)
     SHEET.worksheet("stock").append_row(new_stock)
     print("stock worksheet updated successfully.\n")
+    print("Products: T-shirt XS,T-shirt S,T-shirt M,T-shirt L,T-shirt XL,T-shirt XXL")
     print(f"The new stock: {new_stock} .\n")
 
 
@@ -221,6 +252,8 @@ def update_damage_worksheet_add(data):
         new_damage.append(damage_data)
     SHEET.worksheet("damage").append_row(new_damage)
     print("damage worksheet updated successfully.\n")
+    print("Products: T-shirt XS,T-shirt S,T-shirt M,T-shirt L,T-shirt XL,T-shirt XXL")
     print(f"The new total damage: {new_damage} .\n")
+
 
 main()
