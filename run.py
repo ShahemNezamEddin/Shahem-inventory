@@ -62,7 +62,7 @@ def main():
 
 def go_back():
     """
-
+    
     """
     questions = [
         inquirer.List("choice",
@@ -88,7 +88,6 @@ def main_sales():
     update_stock_worksheet_deduct(sales)
     sleep(2)
     go_back()
-    
 
 
 def main_buy():
@@ -135,7 +134,6 @@ def main_return_damage():
     update_damage_worksheet_add(return_damage)
     sleep(2)
     go_back()
-
 
 
 def empty_space_for_storage():
