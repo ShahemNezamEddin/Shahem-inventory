@@ -3,7 +3,11 @@ Import Libraries:
 gspread to deal with google sheet api
 google.oauth2 for Credentials
 """
+import os
+import sys
+from time import sleep
 import gspread
+import inquirer
 from google.oauth2.service_account import Credentials
 
 SCOPE = [
@@ -17,16 +21,40 @@ SCOPE_CREDS = CREDS.with_scopes(SCOPE)
 GSPEAD_CLIENT = gspread.authorize(SCOPE_CREDS)
 SHEET = GSPEAD_CLIENT.open("shahem_inventory")
 
+def show_list():
+    """
+    """
+    questions = [
+        inquirer.List("choice",
+        message="What would like to do?",
+        choices=["Add sales", "Add buy", "Add damage", "Return to stock", "Return to damage", "Exit"],
+        ),
+    ]
+    answers = inquirer.prompt(questions)
+    if answers == {'choice': 'Add sales'}:
+        main_sales()
+    elif answers == {'choice': 'Add buy'}:
+        main_buy()
+    elif answers == {'choice': 'Add damage'}:
+        main_damage()
+    elif answers == {'choice': 'Return to stock'}:
+        main_return_stock()
+    elif answers == {'choice': 'Return to damage'}:
+        main_return_damage()
+    else:
+        print("thank you")
+        sys.exit()
+
+    sleep(5)    
+    main() 
+
+
 
 def main():
     """
-    Run all main functions
     """
-    main_sales()
-    main_buy()
-    main_damage()
-    main_return_damage()
-    main_return_stock()
+    os.system("clear")
+    show_list()
 
 
 def main_sales():
