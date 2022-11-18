@@ -30,7 +30,8 @@ def show_list():
     questions = [
         inquirer.List("choice",
         message="What would like to do?",
-        choices=["Add sales", "Add buy", "Add damage", "Return to stock", "Return to damage", "Exit"],
+        choices=["Add sales", "Add buy", "Add damage", "Return to stock",
+        "Return to damage", "Empty space for storage", "Exit"],
         ),
     ]
     answers = inquirer.prompt(questions)
@@ -44,6 +45,8 @@ def show_list():
         main_return_stock()
     elif answers == {'choice': 'Return to damage'}:
         main_return_damage()
+    elif answers == {'choice': 'Empty space for storage'}:
+        empty_space_for_storage()
     else:
         print("thank you")
         sys.exit()
@@ -134,6 +137,32 @@ def main_return_damage():
     go_back()
 
 
+
+def empty_space_for_storage():
+    """
+    s
+    """
+    stock = SHEET.worksheet("stock").get_all_values()
+    stock_row = stock[-1]
+    row = []
+    for num in stock_row:
+        new_num = num.replace(',', '')
+        row.append(new_num)
+    int_row = [int(num) for num in row]
+    storage = []
+    for num in int_row:
+        if num < 1000:
+            empty_storage = 1000 - num
+            storage.append(empty_storage)
+        else:
+            storage.append("storage is full")
+    print("T-shirt XS,T-shirt S,T-shirt M,T-shirt L,T-shirt XL,T-shirt XXL")
+    print(f"Empty space for storage :{storage}")
+    sleep(2)
+    go_back()
+
+
+
 def get_input(sheet_type):
     """
     Get sheet figures input from the user.
@@ -195,7 +224,7 @@ def calculate_total(data):
     for i in range(1, 7):
         col = SHEET.worksheet(data).col_values(i)
         col.pop(0)
-        new_col = [int(num) for num in col]
+        new_col = [int(num.replace(',', '')) for num in col]
         total_sum = sum(new_col)
         total.append(total_sum)
     print("Products: T-shirt XS,T-shirt S,T-shirt M,T-shirt L,T-shirt XL,T-shirt XXL")
@@ -212,7 +241,7 @@ def update_stock_worksheet_deduct(data):
     stock_row = stock[-1]
     new_stock = []
     for stock, num in zip(stock_row, data):
-        stock_data = int(stock) - num
+        stock_data = int(stock.replace(',', '')) - num
         new_stock.append(stock_data)
     SHEET.worksheet("stock").append_row(new_stock)
     print("stock worksheet updated successfully.\n")
@@ -230,7 +259,7 @@ def update_stock_worksheet_add(data):
     stock_row = stock[-1]
     new_stock = []
     for stock, num in zip(stock_row, data):
-        stock_data = int(stock) + num
+        stock_data = int(stock.replace(',', '')) + num
         new_stock.append(stock_data)
     SHEET.worksheet("stock").append_row(new_stock)
     print("stock worksheet updated successfully.\n")
@@ -248,7 +277,7 @@ def update_damage_worksheet_add(data):
     damage_row = damage[-1]
     new_damage = []
     for damage, num in zip(damage_row, data):
-        damage_data = int(damage) + num
+        damage_data = int(damage.replace(',', '')) + num
         new_damage.append(damage_data)
     SHEET.worksheet("damage").append_row(new_damage)
     print("damage worksheet updated successfully.\n")
