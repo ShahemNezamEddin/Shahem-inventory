@@ -164,7 +164,7 @@ def storage_capacity():
         else:
             storage.append("storage is full")
     print("T-shirt XS,T-shirt S,T-shirt M,T-shirt L,T-shirt XL,T-shirt XXL")
-    print(f"Empty space for storage :{storage}")
+    print(f"storage capacity :{storage}")
     sleep(2)
     go_back()
 
