@@ -44,6 +44,16 @@
         - [Update stock worksheet add](<#update-stock-worksheet-add>)
         - [Update damage worksheet add](<#update-damage-worksheet-add>)
     - [Future features](<#future-features>)
+- [**Technologies used**](<#technologies-used>)
+- [**Python Packages**](<#python-Packages>)        
+- [**Testing**](<#testing>)
+    - [Code Validation](<#code-validation>)
+    - [Browser Compatibility](<#browser-compatibility>)
+    - [Responsiveness Test](<#responsiveness-test>)
+    - [Lighthouse](<#lighthouse>)
+    - [Manual testing](<#manual-testing>)
+    - [User stories testing](<#user-stories-testing>)
+    - [Fixed bugs](<#Fixed-bugs>)
 
 
 # User experience (UX)
@@ -73,7 +83,7 @@
 
 <details><summary><b>Flow chart diagram</b></summary>
 
-![flow-chart-diagram ](./assets/images/Flow-chart-diagram.PNG)
+![flow-chart-diagram](./assets/images/Flow-chart-diagram.PNG)
 </details><br/>
 
 [Back to top](<#navigator>)
@@ -249,6 +259,127 @@ The worksheet holds 6 columns with information such as:
 ### Update damage worksheet add
 
 [Back to top](<#navigator>)
+
+# Technologies used
+- [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) - Provides the functionality for the application.
+- [Google Sheets](https://www.google.co.uk/sheets/about/) - Used to host the application data.
+- []() - used to create the flow chart diagram.
+- [Gitpod](https://www.gitpod.io/#get-started) - used to deploy the website.
+- [Github](https://github.com/) - used to host and edit the website.
+- [Heroku](https://en.wikipedia.org/wiki/Heroku) - A cloud platform that the application is deployed to.
+
+[Back to top](<#navigator>)
+
+# Python Packages
+- [GSpread](https://pypi.org/project/gspread/) - A Python package that makes it possible to transfer data between the application and the Google Sheet.
+- [Sys](https://docs.python.org/3/library/sys.html) - A module that provides access to used or maintained by the interpreter and to functions that interact strongly with the interpreter. It is always available (*text taken from [here](https://docs.python.org/3/library/sys.html)*)
+- [OS](https://docs.python.org/3/library/os.html) - A module that provides a portable way of using OS dependent functionality.
+- [inquirer]() - python package provides list of choices
+- [Time](https://docs.python.org/3/library/time.html) - A module that provides various time-related functions
+
+[Back to top](<#navigator>)
+
+# Testing 
+
+## Code Validation
+
+### Python
+
+* No errors were returned when passing through the official [CI Python Linter](https://pep8ci.herokuapp.com/)
+
+![CI Python Linter](./assets/images/CI-Python-Linter.PNG)
+
+[Back to top](<#navigator>)
+
+## Browser Compatibility
+
+- Shahem inventory site was tested on the following browsers Google Chrome, Safari and Mozilla Firefox.
+- Appearance, functionality and responsiveness were consistent on a range of different device sizes and browsers.
+
+[Back to top](<#navigator>)
+
+## Responsiveness Test
+
+* The responsive tests were exercised by using [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/).
+
+|        | iPad mine | Galaxy S5 | iPhone 6/7/8 | iPad | iPad Pro | iPhone 6/7/8 plus | Display >950px  |
+|--------|-----------|-----------|--------------|------|----------|-------------------|-----------------|
+| Text   | pass      | pass      | pass         | pass | pass     | pass              | pass            |
+
+[Back to top](<#navigator>)
+
+## Lighthouse
+Shahem inventory site was also tested using [Google Lighthouse](https://developers.google.com/web/tools/lighthouse) in Chrome Developer Tools to test the page for:
+- Performance - How the page performs whilst loading.
+- Accessibility - Is the site accessible for all users and how can it be improved.
+- Best Practices - Site conforms to industry best practices.
+- SEO - Search engine optimization. Is the site optimized for search engine result rankings.
+
+![Lighthouse test results Dice Game page](./assets/images/lighthouse.PNG)
+
+[Back to top](<#navigator>)
+
+## Manual testing
+- Show short welcome message, the instructions text and a list of choices is working as expected. 
+- Choice Add sales is working as expected. It update sales worksheet give total sales then update stock worksheet give new stock.
+- Choice Add buy is working as expected. It update buy worksheet give total buy then update stock worksheet give new stock.
+- Choice Add damage is working as expected. It update damage worksheet give total damage then update stock worksheet give new stock.
+- Choice Return to stock is working as expected. It update stock worksheet give new stock.
+- Choice Return to damage is working as expected. It update damage worksheet give total damage.
+- Choice Storage capacity is working as expected. It chick the now stock if is smeller than 1000 deduct the new stock from 1000 and print Storage capacity if it bigger than 1000 print Storage is full.
+- Choice Exit is working as expected.
+- Choice Go back is working as expected. It clear terminal and show  the list of choices
+
+
+
+[Back to top](<#navigator>)
+
+## User stories testing
+- As a user, I want to understand the purpose of this site upon loading it.
+
+![User stories testing.understand the purpose of this site](./assets/images/welcome-purpose.PNG)
+
+
+- As a user, I want to be able to know what are the instructions to use this site.
+
+![User stories testing.understand the instructions](./assets/images/the-instructions.png)
+
+- As a user, I want to be able to add sales to the total sales and update the stock.
+
+![User stories testing.add sales](./assets/images/add-sales-1.png)
+![User stories testing.add sales](./assets/images/add-sales-1.png)
+
+- As a user, I want to be able to add buy to the total buy and update the stock.
+
+![User stories testing.add buy](./assets/images/add-buy-1.png)
+
+- As a user, I want to be able to add damage to the total damage and update the stock.
+
+![User stories testing.add damage](./assets/images/add-damage-1.png)
+
+- As a user, I want to be able to return to stock update the stock.
+
+![User stories testing.return to stock](./assets/images/return-to-stock-1.png)
+
+- As a user, I want to be able to return to damage update the damage.
+
+![User stories testing.return to damage](./assets/images/return-to-damage-1.png)
+
+- As a user, I want to be able to see storage capacity.
+
+![User stories testing.storage capacity](./assets/images/storage-capacity-1.png)
+
+- As a user, I want to be able to exit site.
+
+![User stories testing.exit](./assets/images/exit-1.png)
+
+- As a user I want have an easy way of getting back to the main menu.
+
+![User stories testing.go back](./assets/images/)
+
+
+
+
 
 
 
