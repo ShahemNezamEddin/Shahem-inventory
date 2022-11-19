@@ -15,7 +15,7 @@
 [Shahem inventory](https://shahem-inventory.herokuapp.com/) site.
 
 
-![Responsive Mockup]()
+![Responsive Mockup](./assets/images/amiresponsive.PNG)
 
 # Navigator
 
@@ -24,7 +24,26 @@
     - [Flow chart diagram](<#flow-chart-diagram>)
     - [Site structure](<#site-structure>)
     - [Data Model](<#data-model>)
-
+- [**Features**](<#features>)
+    - [Existing features](<#existing-features>)
+    - [Python functions](<#python-functions>)
+        - [Show list](<#show-list>)
+        - [Main](<#main>)
+        - [Go back](<#go-back>)
+        - [Main sales](<#main-sales>)
+        - [Main buy](<#main-buy>)
+        - [Main damage](<#main-damage>)
+        - [Main return stock](<#main-return-stock>)
+        - [Main return damage](<#main-return-damage>)
+        - [Storage capacity](<#storage-capacity>)
+        - [Get input](<#get-input>)
+        - [Validate data](<#validate-data>)
+        - [Update worksheet](<#update-worksheet>)
+        - [Calculate total](<#calculate-total>)
+        - [Update stock worksheet deduct](<#update-stock-worksheet-deduct>)
+        - [Update stock worksheet add](<#update-stock-worksheet-add>)
+        - [Update damage worksheet add](<#update-damage-worksheet-add>)
+    - [Future features](<#future-features>)
 
 
 # User experience (UX)
@@ -52,9 +71,10 @@
 - Shows the sequence of triggering the site's functionalities.
 - Plan and write efficient functions.
 
+<details><summary><b>Flow chart diagram</b></summary>
 
-![flow-chart-diagram ]()
-
+![flow-chart-diagram ](./assets/images/Flow-chart-diagram.PNG)
+</details><br/>
 
 [Back to top](<#navigator>)
 
@@ -79,10 +99,157 @@ The worksheet holds 6 columns with information such as:
   T-shirt XS,T-shirt S,T-shirt M,T-shirt L,T-shirt XL,T-shirt XXL 
   that is being controlled from the application via Python.
 
-![data-model]()
-![data-model]()
-![data-model]()
-![data-model]()
- 
+ <details><summary><b>Google Sheet sales</b></summary>
+
+![Google Sheet](./assets/images/worksheet-sales.PNG)
+</details><br/>
+ <details><summary><b>Google Sheet buy</b></summary>
+
+![Google Sheet](./assets/images/worksheet-buy.PNG)
+</details><br/>
+<details><summary><b>Google Sheet damage</b></summary>
+
+![Google Sheet](./assets/images/worksheet-damage.PNG)
+</details><br/>
+ <details><summary><b>Google Sheet stock</b></summary>
+
+![Google Sheet](./assets/images/worksheet-stock.PNG)
+</details><br/>
+
+
 [Back to top](<#navigator>)
+
+# Features 
+
+## Existing features
+
+## Python functions
+
+### Show list
+
+
+<details><summary><b>Show list</b></summary>
+
+![Show list](./assets/images/)
+</details><br/>
+
+[Back to top](<#navigator>)
+
+### Main
+
+
+<details><summary><b>Main</b></summary>
+
+![Main](./assets/images/)
+</details><br/>
+
+[Back to top](<#navigator>)
+
+### Go back
+
+
+<details><summary><b>Go back</b></summary>
+
+![Go back](./assets/images/)
+</details><br/>
+
+[Back to top](<#navigator>)
+
+### Main sales
+
+
+<details><summary><b>Main sales</b></summary>
+
+![Main sales](./assets/images/)
+</details><br/>
+
+[Back to top](<#navigator>)
+
+### Main buy
+
+
+<details><summary><b>Main buy</b></summary>
+
+![Main buy](./assets/images/)
+</details><br/>
+
+[Back to top](<#navigator>)
+
+### Main damage
+
+
+<details><summary><b>Main damage</b></summary>
+
+![Main damage](./assets/images/)
+</details><br/>
+
+[Back to top](<#navigator>)
+
+### Main return stock
+
+
+<details><summary><b>Main return stock</b></summary>
+
+![Main return stock](./assets/images/)
+</details><br/>
+
+[Back to top](<#navigator>)
+
+### Main return damage
+
+
+<details><summary><b>Main return damage</b></summary>
+
+![Main return damage](./assets/images/)
+</details><br/>
+
+[Back to top](<#navigator>)
+
+### Storage capacity
+
+
+<details><summary><b>Storage capacity</b></summary>
+
+![Storage capacity](./assets/images/)
+</details><br/>
+
+[Back to top](<#navigator>)
+
+
+### Get input
+
+[Back to top](<#navigator>)
+
+
+### Validate data
+
+[Back to top](<#navigator>)
+
+
+### Update worksheet
+
+[Back to top](<#navigator>)
+
+
+### Calculate total
+
+[Back to top](<#navigator>)
+
+
+### Update stock worksheet deduct
+
+[Back to top](<#navigator>)
+
+
+### Update stock worksheet add
+
+[Back to top](<#navigator>)
+
+
+### Update damage worksheet add
+
+[Back to top](<#navigator>)
+
+
+
 
