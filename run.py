@@ -28,6 +28,8 @@ def show_list():
     a
     """
     print("Welcome to Shahem inventory Data Automation \n")
+    print("You can choose only one option by moving with")
+    print("the keyboard up arrow and down arrow keys. Click enter to choose \n")
     questions = [
         inquirer.List("choice",
                       message="What would like to do?",
