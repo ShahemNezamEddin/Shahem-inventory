@@ -54,7 +54,10 @@
     - [Manual testing](<#manual-testing>)
     - [User stories testing](<#user-stories-testing>)
     - [Fixed bugs](<#Fixed-bugs>)
-
+- [**Deployment**](<#deployment>)
+    - [To deploy the project](<#to-deploy-the-project>)
+    - [To fork the repository on GitHub](<#to-fork-the-repository-on-github>)
+    - [To create a local clone of this project](<#to-create-a-local-clone-of-this-project>)
 
 # User experience (UX)
 
@@ -328,52 +331,144 @@ Shahem inventory site was also tested using [Google Lighthouse](https://develope
 - Choice Go back is working as expected. It clear terminal and show the list of choices.
 
 
-
 [Back to top](<#navigator>)
 
 ## User stories testing
 - As a user, I want to understand the purpose of this site upon loading it.
 
-![User stories testing.understand the purpose of this site](./assets/images/welcome-purpose.PNG)
+<details><summary><b>Understand the purpose of this site</b></summary>
 
+![User stories testing.understand the purpose of this site](./assets/images/welcome-purpose.PNG)
+</details><br/>
 
 - As a user, I want to be able to know what are the instructions to use this site.
 
+<details><summary><b>Understand the instructions of this site</b></summary>
+
 ![User stories testing.understand the instructions](./assets/images/the-instructions.png)
+</details><br/>
 
 - As a user, I want to be able to add sales to the total sales and update the stock.
 
+<details><summary><b>Add sales</b></summary>
+
 ![User stories testing.add sales](./assets/images/add-sales-1.png)
-![User stories testing.add sales](./assets/images/add-sales-1.png)
+![User stories testing.add sales](./assets/images/add-sales-2.png)
+![User stories testing.add sales](./assets/images/add-sales-3.png)
+</details><br/>
 
 - As a user, I want to be able to add buy to the total buy and update the stock.
 
+<details><summary><b>Add buy</b></summary>
+
 ![User stories testing.add buy](./assets/images/add-buy-1.png)
+![User stories testing.add buy](./assets/images/add-buy-2.png)
+![User stories testing.add buy](./assets/images/add-buy-3.png)
+</details><br/>
 
 - As a user, I want to be able to add damage to the total damage and update the stock.
 
+<details><summary><b>Add damage</b></summary>
+
 ![User stories testing.add damage](./assets/images/add-damage-1.png)
+![User stories testing.add damage](./assets/images/add-damage-2.png)
+![User stories testing.add damage](./assets/images/add-damage-3.png)
+</details><br/>
 
 - As a user, I want to be able to return to stock update the stock.
 
+<details><summary><b>Return to stock</b></summary>
+
 ![User stories testing.return to stock](./assets/images/return-to-stock-1.png)
+![User stories testing.return to stock](./assets/images/return-to-stock-2.png)
+![User stories testing.return to stock](./assets/images/return-to-stock-3.png)
+</details><br/>
 
 - As a user, I want to be able to return to damage update the damage.
 
+<details><summary><b>Return to damage</b></summary>
+
 ![User stories testing.return to damage](./assets/images/return-to-damage-1.png)
+![User stories testing.return to damage](./assets/images/return-to-damage-2.png)
+![User stories testing.return to damage](./assets/images/return-to-damage-3.png)
+</details><br/>
 
 - As a user, I want to be able to see storage capacity.
 
+<details><summary><b>Storage capacity</b></summary>
+
 ![User stories testing.storage capacity](./assets/images/storage-capacity-1.png)
+![User stories testing.storage capacity](./assets/images/storage-capacity-2.png)
+</details><br/>
 
 - As a user, I want to be able to exit site.
 
+<details><summary><b>Exit</b></summary>
+
 ![User stories testing.exit](./assets/images/exit-1.png)
+![User stories testing.exit](./assets/images/exit-2.png)
+![User stories testing.exit](./assets/images/exit-3.png)
+![User stories testing.exit](./assets/images/exit-4.png)
+</details><br/>
 
 - As a user I want have an easy way of getting back to the main menu.
 
-![User stories testing.go back](./assets/images/)
+<details><summary><b>Go back</b></summary>
 
+![User stories testing.go back](./assets/images/go-back-1.png)
+![User stories testing.go back](./assets/images/go-back-2.png)
+</details><br/>
+
+
+[Back to top](<#navigator>)
+
+
+## Fixed bugs
+
+[Back to top](<#navigator>)
+
+# Deployment
+
+## To deploy the project
+The project was deployed to [Heroku](https://www.heroku.com). To deploy,I follow the process below:
+  1. The first step is to log in to Heroku (or create an account if needed).
+  2. In the top right corner there is a button that is labeled 'New'. Click that and then select 'Create new app'.
+  3. Enter an application name that needs to be unique. When you have chose the name, choose your region and click 'Create app".
+  4. On the next page, click the 'Settings' tab and find the "Config Vars" section. When you have found it, click "Reveal Config Vars". add values.(KEY input field = "CREDS", VALUE input field = "your credentials"
+  5. Next step is to add buildpacks to the application which will run when the application is deployed. The reason why this is needed is because all dependencies and configurations will be installed for the application. To do this you scroll down to the buildpacks section on the settings page and click the button 'Add buildpack'.
+  6. Add "Python" and node.js". It is important that Python is listed above node.js.
+  7. Scroll to the top of the settings page and click the 'Deploy' tab. For deployment method, select 'Github'. Search for the repository name you want to deploy and then click connect.
+  8. Scroll down on the deploy page and choose deployment type. Choose to enable automatic deployments if you want to and then click 'Deploy Branch'.
+
+  [Shahem inventory](https://shahem-inventory.herokuapp.com/) site.
+
+
+
+[Back to top](<#navigator>)
+
+## To fork the repository on GitHub
+A copy of the GitHub Repository can be made by forking the GitHub account. This copy can be viewed and changes can be made to the copy without affecting the original repository. Take the following steps to fork the repository;
+1. Log in to **GitHub** and locate the [repository](https://shahemnezameddin.github.io//).
+2. On the right-hand side of the page inline with the repository name, is a button called **'Fork'**. Click on the button to create a copy of the original repository in your GitHub Account.
+
+
+
+[Back to top](<#navigator>)
+
+## To create a local clone of this project
+The method for cloning a project from GitHub is below:
+
+1. Under the repository’s name, click on the **code** tab.
+2. In the **Clone with HTTPS** section, click on the clipboard icon to copy the given URL.
+3. In your IDE of choice, open **Git Bash**.
+4. Change the current working directory to where you want the cloned directory to be made.
+5. Type **git clone**, then paste the URL copied from GitHub.
+6. Press **enter**, and the local clone will be created.
+
+
+
+[Back to top](<#navigator>)
+ 
 
 
 
