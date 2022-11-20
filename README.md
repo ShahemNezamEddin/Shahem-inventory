@@ -136,112 +136,102 @@ The worksheet holds 6 columns with information such as:
 ## Python functions
 
 ### Show list
-
-
-<details><summary><b>Show list</b></summary>
-
-![Show list](./assets/images/)
-</details><br/>
+- pint welcome message, print instructions, show list of choices with if condition statement to call one of the main functions
 
 [Back to top](<#navigator>)
 
 ### Main
-
-
-<details><summary><b>Main</b></summary>
-
-![Main](./assets/images/)
-</details><br/>
+- Clear terminal using os-system package then call show_list function
 
 [Back to top](<#navigator>)
 
 ### Go back
-
-
-<details><summary><b>Go back</b></summary>
-
-![Go back](./assets/images/)
-</details><br/>
+- Show list of choices, if the user choose go back choice it will call main function.
+- if he choose exit choice it will print thank you message and exit the application.
 
 [Back to top](<#navigator>)
 
 ### Main sales
-
-
-<details><summary><b>Main sales</b></summary>
-
-![Main sales](./assets/images/)
-</details><br/>
+- Get the input array from the user then convert it to integer.
+- Update the sales worksheet and print total sales.
+- Update stock sheet by deduct the sales input from the stock and, print new stock.
+- Timeout for 2 sec, then call go_back function.
 
 [Back to top](<#navigator>)
+
 
 ### Main buy
-
-
-<details><summary><b>Main buy</b></summary>
-
-![Main buy](./assets/images/)
-</details><br/>
+- Get the input array from the user then convert it to integer.
+- Update the buy worksheet and print total buy.
+- Update stock sheet by add the buy input to the stock and, print new stock.
+- Timeout for 2 sec, then call go_back function.
 
 [Back to top](<#navigator>)
+
 
 ### Main damage
-
-
-<details><summary><b>Main damage</b></summary>
-
-![Main damage](./assets/images/)
-</details><br/>
+- Get the input array from the user then convert it to integer.
+- Update the damage worksheet and print total damage,
+- Update stock sheet by deduct the damage input from the stock and, print new stock.
+- Timeout for 2 sec, then call go_back function.
 
 [Back to top](<#navigator>)
+
 
 ### Main return stock
-
-
-<details><summary><b>Main return stock</b></summary>
-
-![Main return stock](./assets/images/)
-</details><br/>
+- Get the input array from the user then convert it to integer.
+- Update stock sheet by add the return to stock input to the stock and, print new stock.
+- Timeout for 2 sec, then call go_back function.
 
 [Back to top](<#navigator>)
+
 
 ### Main return damage
-
-
-<details><summary><b>Main return damage</b></summary>
-
-![Main return damage](./assets/images/)
-</details><br/>
+- Get the input array from the user then convert it to integer.
+- Update the damage worksheet by add return to damage to damage and print total damage,
+- Timeout for 2 sec, then call go_back function.
 
 [Back to top](<#navigator>)
 
+
 ### Storage capacity
-
-
-<details><summary><b>Storage capacity</b></summary>
-
-![Storage capacity](./assets/images/)
-</details><br/>
+- Get stock worksheet last row values then replace the comma with empty staring '' before convert it to integer.
+- Then if num less than 1000 then (1000  - num)
+- And if it is more than 1000 or equal print storage is full message
 
 [Back to top](<#navigator>)
 
 
 ### Get input
+- Get sheet input from the user.
+- Run a while loop to collect a valid string of data from the user
+- Which must be a string of 6 numbers separated by commas.
+- The loop will repeatedly request data, until it is valid.
 
 [Back to top](<#navigator>)
 
 
 ### Validate data
+- Inside the try, converts all string values into integers.
+- Raises ValueError if strings cannot be converted into int, or if there aren't exactly 6 values.
 
 [Back to top](<#navigator>)
 
 
 ### Update worksheet
+- Update worksheet, add new row with the list data provided and call calculate_total function
 
 [Back to top](<#navigator>)
 
 
 ### Calculate total
+- Calculate total for each sheet by using for loop
+- Get worksheet columns values, 
+- Remove the first index 
+- Then replace the comma with empty staring '' before convert it to integer,
+- Then sum the column 
+- Then append to now array
+- print total
 
 [Back to top](<#navigator>)
 

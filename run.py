@@ -24,8 +24,9 @@ SHEET = GSPEAD_CLIENT.open("shahem_inventory")
 
 def show_list():
     """
-    a
-    a
+    pint welcome message, print instructions, 
+    show list of choices with if condition statement
+    to call one of the main functions
     """
     print("Welcome to Shahem inventory Data Automation \n")
     print("You can choose only one option by moving with")
@@ -62,7 +63,7 @@ def show_list():
 
 def main():
     """
-
+    clear terminal using os-system package then call show_list function
     """
     os.system("clear")
     show_list()
@@ -70,8 +71,9 @@ def main():
 
 def go_back():
     """
-    a
-    a
+    Show list of choices, if the user choose
+    go back choice it will call main function or if he choose exit choice
+    it will print thank you message and exit the application
     """
     questions = [
         inquirer.List("choice",
@@ -89,7 +91,12 @@ def go_back():
 
 def main_sales():
     """
-    central method for sales
+    central method for sales: get the input array from the user then convert
+    it to integer.
+    update the sales worksheet and print total sales,
+    update stock sheet by deduct the sales input from the stock and,
+    print new stock.
+    timeout for 2 sec, then call go_back function
     """
     sales_data = get_input('sales')
     sales = [int(num) for num in sales_data]
@@ -101,7 +108,12 @@ def main_sales():
 
 def main_buy():
     '''
-     central method for buy
+    central method for buy: get the input array from the user then convert
+    it to integer.
+    update the buy worksheet and print total buy,
+    update stock sheet by add the buy input to the stock and,
+    print new stock.
+    timeout for 2 sec, then call go_back function
     '''
     bay_data = get_input('buy')
     buy = [int(num) for num in bay_data]
@@ -113,7 +125,12 @@ def main_buy():
 
 def main_damage():
     """
-    central method for damage
+    central method for damage: get the input array from the user then convert
+    it to integer.
+    update the damage worksheet and print total damage,
+    update stock sheet by deduct the damage input from the stock and,
+    print new stock.
+    timeout for 2 sec, then call go_back function
     """
     damage_data = get_input('damage')
     damage = [int(num) for num in damage_data]
@@ -125,7 +142,11 @@ def main_damage():
 
 def main_return_stock():
     """
-    central method for return to stock
+    central method for return to stock: get the input array from the user then
+    convert it to integer.
+    update stock sheet by add the return to stock input to the stock and,
+    print new stock.
+    timeout for 2 sec, then call go_back function
     """
     return_stock_data = get_input('return to stock')
     return_stock = [int(num) for num in return_stock_data]
@@ -136,7 +157,10 @@ def main_return_stock():
 
 def main_return_damage():
     """
-    central method for return to damage
+    central method for return to damage: get the input array from the user then
+    convert it to integer.
+    update the damage worksheet by add return to damage to damage and print total damage,
+    timeout for 2 sec, then call go_back function
     """
     return_damage_data = get_input('return to damage')
     return_damage = [int(num) for num in return_damage_data]
@@ -147,7 +171,10 @@ def main_return_damage():
 
 def storage_capacity():
     """
-    s
+    Get stock worksheet last row values then replace the comma
+    with empty staring '' before convert it to integer
+    then if num less than 1000 then (1000  - num)
+    and if it is more than 1000 or equal print storage is full message
     """
     stock = SHEET.worksheet("stock").get_all_values()
     stock_row = stock[-1]
@@ -172,9 +199,9 @@ def storage_capacity():
 def get_input(sheet_type):
     """
     Get sheet figures input from the user.
-    Run a while loop to collect a valid string of data from the user
-    via the terminal, which must be a string of 6 numbers separated
-    by commas. The loop will repeatedly request data, until it is valid.
+    Run a while loop to collect a valid string of data from the user,
+    which must be a string of 6 numbers separated by commas.
+    The loop will repeatedly request data, until it is valid.
     """
     while True:
         print(f"Please enter {sheet_type} data from the last market.")
@@ -214,7 +241,7 @@ def validate_data(values):
 def update_worksheet(data, sheet_type):
     """
     Update worksheet, add new row with the list data provided
-    and print total in worksheet
+    and call calculate_total function
     """
     print(f"Updating {sheet_type} worksheet...\n")
     worksheet = SHEET.worksheet(sheet_type)
@@ -225,7 +252,10 @@ def update_worksheet(data, sheet_type):
 
 def calculate_total(data):
     """
-    Calculate total for each sheet
+    Calculate total for each sheet by using for loop Get worksheet columns values, 
+    remove the first index then replace the comma
+    with empty staring '' before convert it to integer,
+    then sum the column then append to now array
     """
     total = []
     for i in range(1, 7):
@@ -241,8 +271,9 @@ def calculate_total(data):
 
 def update_stock_worksheet_deduct(data):
     """
-    Update stock worksheet, add new row with
-    the list data provided - the old stock
+    Update stock worksheet, by adding new row with
+    using zip method to be able to deduct the last input from the stock
+    print the new stock
     """
     print("Updating stock worksheet...\n")
     stock = SHEET.worksheet("stock").get_all_values()
@@ -260,8 +291,9 @@ def update_stock_worksheet_deduct(data):
 
 def update_stock_worksheet_add(data):
     """
-    Update stock worksheet, add new row with
-    the list data provided + the old stock
+    Update stock worksheet, by adding new row with
+    using zip method to be able to add the last input to the stock
+    print the new stock
     """
     print("Updating stock worksheet...\n")
     stock = SHEET.worksheet("stock").get_all_values()
@@ -279,8 +311,9 @@ def update_stock_worksheet_add(data):
 
 def update_damage_worksheet_add(data):
     """
-    Update damage worksheet, add new row with
-    the list data provided + the old damage
+    Update damage worksheet, by adding new row with
+    using zip method to be able to add the last input to the damage
+    print the total damage
     """
     print("Updating damage worksheet...\n")
     damage = SHEET.worksheet("damage").get_all_values()
