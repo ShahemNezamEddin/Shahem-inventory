@@ -43,6 +43,7 @@
         - [Update stock worksheet deduct](<#update-stock-worksheet-deduct>)
         - [Update stock worksheet add](<#update-stock-worksheet-add>)
         - [Update damage worksheet add](<#update-damage-worksheet-add>)
+        - [Refactor the code and make it more dynamic](<#refactor-the-code-and-make-it-more-dynamic>)
     - [Future features](<#future-features>)
 - [**Technologies used**](<#technologies-used>)
 - [**Python Packages**](<#python-Packages>)        
@@ -262,11 +263,24 @@ The worksheet holds 6 columns with information such as:
 
 [Back to top](<#navigator>)
 
+### Refactor the code and make it more dynamic
+- Create helper functions used in other functions for the common code.
+- Use functions with one o more parameters.
+
+[Back to top](<#navigator>)
+
+## Future features
+- Add and remove product.
+- Migrate to database.
+- Make front end interface for the app.
+
+[Back to top](<#navigator>)
+
 
 # Technologies used
 - [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) - Provides the functionality for the application.
 - [Google Sheets](https://www.google.co.uk/sheets/about/) - Used to host the application data.
-- []() - used to create the flow chart diagram.
+- [Draw IO](https://drawio-app.com/) - used to create the flow chart diagram.
 - [Gitpod](https://www.gitpod.io/#get-started) - used to deploy the website.
 - [Github](https://github.com/) - used to host and edit the website.
 - [Heroku](https://en.wikipedia.org/wiki/Heroku) - A cloud platform that the application is deployed to.
@@ -277,7 +291,7 @@ The worksheet holds 6 columns with information such as:
 - [GSpread](https://pypi.org/project/gspread/) - A Python package that makes it possible to transfer data between the application and the Google Sheet.
 - [Sys](https://docs.python.org/3/library/sys.html) - A module that provides access to used or maintained by the interpreter and to functions that interact strongly with the interpreter. It is always available (*text taken from [here](https://docs.python.org/3/library/sys.html)*)
 - [OS](https://docs.python.org/3/library/os.html) - A module that provides a portable way of using OS dependent functionality.
-- [inquirer]() - python package provides list of choices
+- [inquirer](https://pypi.org/project/inquirer/) - python package provides list of choices
 - [Time](https://docs.python.org/3/library/time.html) - A module that provides various time-related functions
 
 [Back to top](<#navigator>)
@@ -428,6 +442,11 @@ Shahem inventory site was also tested using [Google Lighthouse](https://develope
 
 ## Fixed bugs
 
+- I faced during developing, when the number is more than 999 could not covert the value to integer,
+ I got the data from the worksheet with comma ex:"1,000" and I had to replace the coma with empty string to be covert it from string to integer.
+- I had to go back to the documents during using pop() method to use it correctly.
+- Fixing code linting errors.
+
 [Back to top](<#navigator>)
 
 # Deployment
@@ -451,7 +470,7 @@ The project was deployed to [Heroku](https://www.heroku.com). To deploy,I follow
 
 ## To fork the repository on GitHub
 A copy of the GitHub Repository can be made by forking the GitHub account. This copy can be viewed and changes can be made to the copy without affecting the original repository. Take the following steps to fork the repository;
-1. Log in to **GitHub** and locate the [repository](https://shahemnezameddin.github.io//).
+1. Log in to **GitHub** and locate the [repository](https://github.com/ShahemNezamEddin/Shahem-inventory).
 2. On the right-hand side of the page inline with the repository name, is a button called **'Fork'**. Click on the button to create a copy of the original repository in your GitHub Account.
 
 
@@ -476,7 +495,7 @@ The method for cloning a project from GitHub is below:
 
 ### Content 
 
-- The flow chart diagram were created by []().
+- The flow chart diagram were created by [Drawio-app](https://drawio-app.com/).
 - The idea came from Code Institute course materials and youtube videos.
 - The inspiration for using google sheet came from Love_sandwiches project.
 
