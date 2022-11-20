@@ -171,7 +171,7 @@ The worksheet holds 6 columns with information such as:
 
 ### Main damage
 - Get the input array from the user then convert it to integer.
-- Update the damage worksheet and print total damage,
+- Update the damage worksheet and print total damage.
 - Update stock sheet by deduct the damage input from the stock and, print new stock.
 - Timeout for 2 sec, then call go_back function.
 
@@ -188,7 +188,7 @@ The worksheet holds 6 columns with information such as:
 
 ### Main return damage
 - Get the input array from the user then convert it to integer.
-- Update the damage worksheet by add return to damage to damage and print total damage,
+- Update the damage worksheet by add return to damage to damage and, print total damage.
 - Timeout for 2 sec, then call go_back function.
 
 [Back to top](<#navigator>)
@@ -196,15 +196,15 @@ The worksheet holds 6 columns with information such as:
 
 ### Storage capacity
 - Get stock worksheet last row values then replace the comma with empty staring '' before convert it to integer.
-- Then if num less than 1000 then (1000  - num)
-- And if it is more than 1000 or equal print storage is full message
+- Then if num less than 1000 then (1000  - num).
+- And if it is more than 1000 or equal print storage is full message.
 
 [Back to top](<#navigator>)
 
 
 ### Get input
 - Get sheet input from the user.
-- Run a while loop to collect a valid string of data from the user
+- Run a while loop to collect a valid string of data from the user.
 - Which must be a string of 6 numbers separated by commas.
 - The loop will repeatedly request data, until it is valid.
 
@@ -219,36 +219,43 @@ The worksheet holds 6 columns with information such as:
 
 
 ### Update worksheet
-- Update worksheet, add new row with the list data provided and call calculate_total function
+- Update worksheet, add new row with the list data provided and call calculate_total function.
 
 [Back to top](<#navigator>)
 
 
 ### Calculate total
-- Calculate total for each sheet by using for loop
-- Get worksheet columns values, 
-- Remove the first index 
-- Then replace the comma with empty staring '' before convert it to integer,
-- Then sum the column 
-- Then append to now array
-- print total
+- Calculate total for each sheet by using for loop.
+- Get worksheet columns values. 
+- Remove the first index. 
+- Then replace the comma with empty staring '' before convert it to integer.
+- Then sum the column.
+- Then append to now array.
+- print total.
 
 [Back to top](<#navigator>)
 
 
 ### Update stock worksheet deduct
+- Update stock worksheet, by adding new row with using zip method to be able to deduct the last input from the stock.
+- Print the new stock.
 
 [Back to top](<#navigator>)
 
 
 ### Update stock worksheet add
+- Update stock worksheet, by adding new row with using zip method to be able to add the last input to the stock.
+- Print the new stock.
 
 [Back to top](<#navigator>)
 
 
 ### Update damage worksheet add
+- Update damage worksheet, by adding new row with using zip method to be able to add the last input to the damage.
+- Print the total damage.
 
 [Back to top](<#navigator>)
+
 
 # Technologies used
 - [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) - Provides the functionality for the application.
@@ -318,7 +325,7 @@ Shahem inventory site was also tested using [Google Lighthouse](https://develope
 - Choice Return to damage is working as expected. It update damage worksheet give total damage.
 - Choice Storage capacity is working as expected. It chick the now stock if is smeller than 1000 deduct the new stock from 1000 and print Storage capacity if it bigger than 1000 print Storage is full.
 - Choice Exit is working as expected.
-- Choice Go back is working as expected. It clear terminal and show  the list of choices
+- Choice Go back is working as expected. It clear terminal and show the list of choices.
 
 
 
