@@ -58,6 +58,9 @@
     - [To deploy the project](<#to-deploy-the-project>)
     - [To fork the repository on GitHub](<#to-fork-the-repository-on-github>)
     - [To create a local clone of this project](<#to-create-a-local-clone-of-this-project>)
+- [**Credits**](<#credits>)
+    - [Content](<#content>)    
+- [**Acknowledgements**](<#acknowledgements>)      
 
 # User experience (UX)
 
@@ -469,10 +472,22 @@ The method for cloning a project from GitHub is below:
 
 [Back to top](<#navigator>)
  
+# Credits 
+
+### Content 
+
+- The flow chart diagram were created by []().
+- The idea came from Code Institute course materials and youtube videos.
+- The inspiration for using google sheet came from Love_sandwiches project.
+
+[Back to top](<#navigator>)
 
 
+# Acknowledgements
+I want to thank:
+- My mentor [Precious Ijege](https://www.linkedin.com/in/precious-ijege-908a00168/) for guidance and support.
+- Slack community and Code Institute crew for their help and support.
+- My family and friends, for their user experience and feedback.
 
-
-
-
+[Back to top](<#navigator>)
 

@@ -159,8 +159,8 @@ def main_return_damage():
     """
     central method for return to damage: get the input array from the user then
     convert it to integer.
-    update the damage worksheet by add return to damage to damage and print total damage,
-    timeout for 2 sec, then call go_back function
+    update the damage worksheet by add return to damage to damage and
+    print total damage, timeout for 2 sec, then call go_back function
     """
     return_damage_data = get_input('return to damage')
     return_damage = [int(num) for num in return_damage_data]
@@ -252,8 +252,8 @@ def update_worksheet(data, sheet_type):
 
 def calculate_total(data):
     """
-    Calculate total for each sheet by using for loop Get worksheet columns values, 
-    remove the first index then replace the comma
+    Calculate total for each sheet by using for loop Get worksheet columns
+    values, remove the first index then replace the comma
     with empty staring '' before convert it to integer,
     then sum the column then append to now array
     """
