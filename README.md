@@ -318,7 +318,7 @@ Shahem inventory site was also tested using [Google Lighthouse](https://develope
 - Best Practices - Site conforms to industry best practices.
 - SEO - Search engine optimization. Is the site optimized for search engine result rankings.
 
-![Lighthouse test results Dice Game page](./assets/images/lighthouse.PNG)
+![Lighthouse test results Dice Game page](./assets/images/lighthouse-1.PNG)
 
 [Back to top](<#navigator>)
 
